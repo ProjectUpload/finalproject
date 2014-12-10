@@ -9,25 +9,31 @@
 <p>
     @Html.ActionLink("Enter New Department", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-            DeptCode
-        </th>
-        <th>
-            DeptName
-        </th>
-    </tr>
+<table class="table table-bordered">
+    <thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeptCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeptName)
-        </td>
-    </tr>
+        <tr>
+            <th>
+                DeptCode
+            </th>
+            <th>
+                DeptName
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptName)
+            </td>
+        </tr>
+    </tbody>
 }
 
 </table>

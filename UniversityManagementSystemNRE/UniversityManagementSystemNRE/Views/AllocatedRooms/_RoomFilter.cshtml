@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<UniversityManagementSystemNRE.Models.Course>
 
-<table>
+<table class="table table-bordered">
+    <thead>
     <tr>
         <th>
             Course Code
@@ -8,36 +9,41 @@
         <th>
             Name
         </th>
-        <td>
+        <th>
             Schedule Information
-        </td>
-        
-    </tr>
+        </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @foreach (var anAllocatedRoom in item.AllocatedRoomList)
-            {
-                <b>R.No.:</b>
-                @Html.DisplayFor(modelItem=>anAllocatedRoom.Room.RoomNo)
-                <i>,</i>
-                @Html.DisplayFor(modelItem=>anAllocatedRoom.WeekDay.DayName)
-                <i>,</i>
-                @*@Html.DisplayFor(modelItem=>anAllocatedRoom.StartTime)
-                <i>-</i>
-                @Html.DisplayFor(modelItem=>anAllocatedRoom.EndTime)
-                <i>;</i>*@                                 
-            }
-        </td>
-        
     </tr>
-}
+        </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @foreach (var anAllocatedRoom in item.AllocatedRoomList)
+                    {
+                        <b>R.No.:</b>
+                        @Html.DisplayFor(modelItem => anAllocatedRoom.Room.RoomNo)
+                        <i>,</i>
+                        @Html.DisplayFor(modelItem => anAllocatedRoom.WeekDay.DayName)
+                        <i>,</i>
+                    @*@Html.DisplayFor(modelItem=>anAllocatedRoom.StartTime)
+                        <i>-</i>
+                        @Html.DisplayFor(modelItem=>anAllocatedRoom.EndTime)
+                        <i>;</i>*@
+                    }
+                </td>
+
+            </tr>
+        </tbody>
+        
+    }
 
 </table>

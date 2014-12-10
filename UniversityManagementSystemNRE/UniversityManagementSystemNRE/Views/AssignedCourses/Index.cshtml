@@ -9,7 +9,8 @@
 <p>
     @Html.ActionLink("Assaign Course", "Create")
 </p>
-<table>
+<table class="table table-bordered">
+    <thead>
     <tr>
         <th>
             Course
@@ -18,16 +19,21 @@
             Teacher
         </th>
     </tr>
+        </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.CourseCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
+                </td>
+            </tr>
+        </tbody>
+        
+    }
 
 </table>

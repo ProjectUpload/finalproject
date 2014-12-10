@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<UniversityManagementSystemNRE.Models.Course>
 
-<table>
+<table class="table table-bordered">
+    <thead>
     <tr>
         <th>
             Course Code
@@ -8,29 +9,36 @@
         <th>
             Name/Title
         </th>
-        <td>
-            Semester
-        </td>
         <th>
-            Assigned To
+            Semester
         </th>
-        
-    </tr>
+        @*<th>
+            Assigned To
+        </th>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Semester.SemesterName)
-        </td>
-        
-        
     </tr>
-}
+        </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester.SemesterName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Department.TeacherList)
+                </td>*@
+
+            </tr>
+        </tbody>
+        
+    }
 
 </table>

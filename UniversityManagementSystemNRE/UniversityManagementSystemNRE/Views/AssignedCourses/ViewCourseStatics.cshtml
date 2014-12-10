@@ -14,10 +14,11 @@
 {
     <div>
         <b>Select Department :- </b>
-        @Html.DropDownList("DepartmentID", String.Empty)
+        @Html.DropDownList("DepartmentID", "--Select--")
     </div>
 }
 <div id="course-data">
+    <br/>
     @Html.Partial("~/Views/AssignedCourses/_CourseFilter.cshtml", Model)
 </div>
 
